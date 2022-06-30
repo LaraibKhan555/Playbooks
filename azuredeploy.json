@@ -28,7 +28,7 @@
     },
     "resources": [
         {
-            "type": "Microsoft.Web/connections",
+            "type": "Azure Sub 1/connections",
             "apiVersion": "2016-06-01",
             "name": "[variables('AzureLogAnalyticsDataCollectorConnectionName')]",
             "location": "[resourceGroup().location]",
@@ -36,24 +36,24 @@
                 "displayName": "[variables('AzureLogAnalyticsDataCollectorConnectionName')]",
                 "customParameterValues": {},
                 "api": {
-                    "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/azureloganalyticsdatacollector')]"
+                    "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Azure Sub 1/locations/', resourceGroup().location, '/managedApis/azureloganalyticsdatacollector')]"
                 }
             }
         },
         {
-            "type": "Microsoft.Web/connections",
+            "type": "Azure Sub 1/connections",
             "apiVersion": "2016-06-01",
             "name": "[variables('VirusTotalConnectionName')]",
             "location": "[resourceGroup().location]",
             "properties": {
                 "displayName": "[variables('VirusTotalConnectionName')]",
                 "api": {
-                    "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/virustotal')]"
+                    "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Azure Sub 1/locations/', resourceGroup().location, '/managedApis/virustotal')]"
                 }
             }
         },
         {
-            "type": "Microsoft.Web/connections",
+            "type": "Azure Sub 1/connections",
             "apiVersion": "2016-06-01",
             "name": "[variables('AzureSentinelConnectionName')]",
             "location": "[resourceGroup().location]",
@@ -63,7 +63,7 @@
                 "customParameterValues": {},
                 "parameterValueType": "Alternative",
                 "api": {
-                    "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/azuresentinel')]"
+                    "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Azure Sub 1/locations/', resourceGroup().location, '/managedApis/azuresentinel')]"
                 }
             }
         },
@@ -81,9 +81,9 @@
                 "type": "SystemAssigned"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Web/connections', variables('AzureLogAnalyticsDataCollectorConnectionName'))]",
-                "[resourceId('Microsoft.Web/connections', variables('VirusTotalConnectionName'))]",
-                "[resourceId('Microsoft.Web/connections', variables('AzureSentinelConnectionName'))]"
+                "[resourceId('Azure Sub 1/connections', variables('AzureLogAnalyticsDataCollectorConnectionName'))]",
+                "[resourceId('Azure Sub 1/connections', variables('VirusTotalConnectionName'))]",
+                "[resourceId('Azure Sub 1/connections', variables('AzureSentinelConnectionName'))]"
             ],
             "properties": {
                 "state": "Enabled",
@@ -294,14 +294,14 @@
                     "$connections": {
                         "value": {
                             "azureloganalyticsdatacollector": {
-                                "connectionId": "[resourceId('Microsoft.Web/connections', variables('AzureLogAnalyticsDataCollectorConnectionName'))]",
+                                "connectionId": "[resourceId('Azure Sub 1/connections', variables('AzureLogAnalyticsDataCollectorConnectionName'))]",
                                 "connectionName": "[variables('AzureLogAnalyticsDataCollectorConnectionName')]",
-                                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/azureloganalyticsdatacollector')]"
+                                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Azure Sub 1/locations/', resourceGroup().location, '/managedApis/azureloganalyticsdatacollector')]"
                             },
                             "azuresentinel": {
-                                "connectionId": "[resourceId('Microsoft.Web/connections', variables('AzureSentinelConnectionName'))]",
+                                "connectionId": "[resourceId('Azure Sub 1/connections', variables('AzureSentinelConnectionName'))]",
                                 "connectionName": "[variables('AzureSentinelConnectionName')]",
-                                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/azuresentinel')]",
+                                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Azure Sub 1/locations/', resourceGroup().location, '/managedApis/azuresentinel')]",
                                 "connectionProperties": {
                                     "authentication": {
                                         "type": "ManagedServiceIdentity"
@@ -309,9 +309,9 @@
                                 }
                             },
                             "virustotal": {
-                                "connectionId": "[resourceId('Microsoft.Web/connections', variables('VirusTotalConnectionName'))]",
+                                "connectionId": "[resourceId('Azure Sub 1/connections', variables('VirusTotalConnectionName'))]",
                                 "connectionName": "[variables('VirusTotalConnectionName')]",
-                                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/virustotal')]"
+                                "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Azure Sub 1/locations/', resourceGroup().location, '/managedApis/virustotal')]"
                             }
                         }
                     }
